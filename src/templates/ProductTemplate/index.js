@@ -8,15 +8,16 @@ query ProductQuery($shopifyId: String){
     shopifyProduct(shopifyId: {eq: $shopifyId}) {
         title
         description
-        images
+        images {
         localfile {
             childImageSharp {
                 fluid(maxWidth: 300) {
-                    src
+                    ...GatsbyImageSharpFluid_withWebp
                 }
             }
-        }
+        }   
     }
+}
 }
 `;
 
@@ -27,9 +28,7 @@ export default function ProductTemplate(props) {
             <Grid>
                 <div>
                     <h1>{props.data.shopifyProduct.title}</h1>
-                    <p>
-                        {props.data.shopifyProduct.description}
-                    </p>
+                    <p>{props.data.shopifyProduct.description}</p>
                 </div>
                 <div>
                     image

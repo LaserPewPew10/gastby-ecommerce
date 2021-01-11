@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Layout } from 'components';
+import { Layout,ImageGallery } from 'components';
 import { Grid } from './styles';
 
 export const query = graphql`
@@ -22,7 +22,6 @@ query ProductQuery($shopifyId: String){
 `;
 
 export default function ProductTemplate(props) {
-    console.log(props);
     return (
         <Layout>
             <Grid>
@@ -31,8 +30,8 @@ export default function ProductTemplate(props) {
                     <p>{props.data.shopifyProduct.description}</p>
                 </div>
                 <div>
-                    image
-                    </div>
+                <ImageGallery images={props.data.shopifyProduct.images}/>
+                </div>
             </Grid>
         </Layout>
     );

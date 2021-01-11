@@ -9,6 +9,7 @@ query ProductQuery($shopifyId: String){
         title
         description
         images {
+            id
         localfile {
             childImageSharp {
                 fluid(maxWidth: 300) {

@@ -82,7 +82,9 @@ export default function ProductTemplate(props) {
                     )}
                 </div>
                 <div>
-                <ImageGallery images={props.data.shopifyProduct.images}/>
+                <ImageGallery selectedVariantImageId={selectedVariant?.image.id} 
+                images={props.data.shopifyProduct.images}
+                />
                 </div>
             </Grid>
         </Layout>

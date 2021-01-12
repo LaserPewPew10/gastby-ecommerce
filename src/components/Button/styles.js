@@ -1,4 +1,14 @@
-import styled from 'styled-components';
+import styled, {css}from 'styled-components';
+
+const fullWidthStyles = ({fullWidth}) => {
+    if (fullWidth) {
+        return css`
+        display: block;
+        width: 100%;
+        `;
+    }
+}
+
 
 export const Button = styled.button`
     outline: none;
@@ -15,6 +25,7 @@ export const Button = styled.button`
     color: block;
     border: 1px solid black;
     white-space: nowrap;
+    ${fullWidthStyles}
 
     &:hover:not(:disabled){
         color: white;

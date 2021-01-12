@@ -1,11 +1,12 @@
 /* eslint-disable jsx-ally/no-onchange */
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Layout,ImageGallery } from 'components';
+import { Layout,ImageGallery, ProductQuantityAdder } from 'components';
 import { Grid, SelectWrapper, Price } from './styles';
 import CartContext from 'context/CartContext';
 import {navigate, useLocation} from '@reach/router';
 import queryString from 'query-string';
+
 
 
 export const query = graphql`
@@ -60,12 +61,12 @@ export default function ProductTemplate(props) {
     return (
         <Layout>
             <Grid>
-                <div>
-                    <h1>{props.data.shopifyProduct.title}</h1>
-                    <p>{props.data.shopifyProduct.description}</p>
-                    {product?.availableForSale && !!selectedVariant && (
-                    <>
-                    {product?.variants.length > 1 && (
+            <div>
+          <h1>{props.data.shopifyProduct.title}</h1>
+          <p>{props.data.shopifyProduct.description}</p>
+          {product?.availableForSale && !!selectedVariant && (
+            <>
+              {product?.variants.length > 1 && (
                 <SelectWrapper>
                   <strong>Variant</strong>
                   <select
@@ -80,16 +81,24 @@ export default function ProductTemplate(props) {
                   </select>
                 </SelectWrapper>
               )}
-                    
-                    {!!selectedVariant && <Price>${selectedVariant.price}</Price>}
-                    </>
-                    )}
-                </div>
-                <div>
-                <ImageGallery selectedVariantImageId={selectedVariant?.image.id} 
-                images={props.data.shopifyProduct.images}
-                />
-                </div>
+              {!!selectedVariant && (
+                <>
+                  <Price>${selectedVariant.price}</Price>
+                  <ProductQuantityAdder
+                    available={selectedVariant.available}
+                    variantId={selectedVariant.id}
+                  />
+                </>
+              )}
+            </>
+          )}
+        </div>
+        <div>
+          <ImageGallery
+            selectedVariantImageId={selectedVariant?.image.id}
+            images={props.data.shopifyProduct.images}
+          />
+        </div>
             </Grid>
         </Layout>
     );

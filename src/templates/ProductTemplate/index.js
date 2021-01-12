@@ -65,18 +65,22 @@ export default function ProductTemplate(props) {
                     <p>{props.data.shopifyProduct.description}</p>
                     {product?.availableForSale && !!selectedVariant && (
                     <>
-                    <SelectWrapper>
-                    <stong>Variant</stong>
-                    <select value={selectedVariant.id} 
-                            onChange={handleVariantChange}
-                        >
-                        {product?.variants.map(v => (
-                            <option key={v.id} value={v.id}>
-                            {v.title}
-                            </option>
-                        ))}
-                    </select>
-                    </SelectWrapper>
+                    {product?.variants.length > 1 && (
+                <SelectWrapper>
+                  <strong>Variant</strong>
+                  <select
+                    value={selectedVariant.id}
+                    onChange={handleVariantChange}
+                  >
+                    {product?.variants.map(v => (
+                      <option key={v.id} value={v.id}>
+                        {v.title}
+                      </option>
+                    ))}
+                  </select>
+                </SelectWrapper>
+              )}
+                    
                     {!!selectedVariant && <Price>${selectedVariant.price}</Price>}
                     </>
                     )}

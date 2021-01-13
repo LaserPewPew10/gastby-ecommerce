@@ -8,3 +8,4 @@ export * from './Cart';
 export * from '.Button';
 export * from './QuantityAdjuster';
 export * from './RemoveLineItem';
+export * from './HomepageCollectionsGrid';

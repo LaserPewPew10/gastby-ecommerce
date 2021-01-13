@@ -1,8 +1,15 @@
 import React from ' react';
 import CartContext from 'context/CartContext';
 import {CartItem, CartHeader, CartFooter} from './styles';
+import {QuantityAdjuster} from '../QuantityAdjuster';
+
+
 export function CartContext() {
-    const {checkout} = React.useContext(CartContext);
+    const {checkout, updateLineItem} = React.useContext(CartContext);
+
+    const handledAdjustQuantity = ({quantity, variantId}) => {
+updateLineItem({quantity, variantId});
+    }
 
     return (
   <section>
@@ -27,7 +34,7 @@ export function CartContext() {
                   ${item.variant.price}
               </div>
               <div>
-                  {item.quantity}
+                  <QuantityAdjuster item={item} onAdjust={handledAdjustQuantity}/>
               </div>
               <div>
                   ${(item.quantity * item.variant.price).toFixed(2)}

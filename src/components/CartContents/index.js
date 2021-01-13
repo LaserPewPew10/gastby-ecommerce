@@ -2,6 +2,7 @@ import React from ' react';
 import CartContext from 'context/CartContext';
 import {CartItem, CartHeader, CartFooter} from './styles';
 import {QuantityAdjuster} from '../QuantityAdjuster';
+import {RemoveLineItem} from '../RemoveLineItem';
 
 
 export function CartContext() {
@@ -38,6 +39,9 @@ updateLineItem({quantity, variantId});
               </div>
               <div>
                   ${(item.quantity * item.variant.price).toFixed(2)}
+              </div>
+              <div>
+                  <RemoveLineItem lineItemId={item.id}/>
               </div>
           </CartItem>
       ))}

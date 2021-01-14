@@ -1,6 +1,16 @@
 import React from 'react';
-import {Layout} from 'components';
+import {Layout, Filters} from 'components';
 import ProductContext from 'context/ProductContext';
+import styled from 'styled-components';
+
+
+const Content = styled.div`
+display: grid;
+grip-gap: 20px;
+margin-top: 20px;
+grid-template-columns: 1fr 3fr;
+
+`
 
 
 export default function AllProducts() {
@@ -9,11 +19,10 @@ export default function AllProducts() {
     return (
 <Layout>
     <h4>All Products</h4>
-    <div>
-        {collections.map(collection => (
-            <div key={collection.shopifyId}>{collection.title}</div>
-        ))}
-    </div>
+    <SVGTextContentElement>
+       <Filters />
+       <div>Products</div>
+    </SVGTextContentElement>
 </Layout>
     )
 }

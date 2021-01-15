@@ -1,17 +1,18 @@
 import React from 'react';
 import CartContext from 'context/CartContext';
 import { FaTrashAlt } from 'react-icons/fa';
-import {Icon} from 'styles';
-export function RemoveLineItem({lineItemId}) {
-const {RemoveLineItem} = React.useContext(CartContext);
+import { Icon } from './styles';
 
-const handleClick = () => {
-    RemoveLineItem(lineItemId);
-}
+export function RemoveLineItem({ lineItemId }) {
+  const { removeLineItem } = React.useContext(CartContext);
 
-return (
+  const handleClick = () => {
+    removeLineItem(lineItemId);
+  };
+
+  return (
     <Icon onClick={handleClick}>
-        <FaTrashAlt/>
+      <FaTrashAlt />
     </Icon>
-)
+  );
 }

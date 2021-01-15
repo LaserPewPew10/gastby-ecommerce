@@ -8,8 +8,10 @@ export const CartWrapper = styled(StyledLink).attrs(() => ({
   color: black;
   text-decoration: none;
   padding-left: 16px;
-
-> div:last-child {
+  > svg {
+    margin: auto 0;
+  }
+  > div:last-child {
     padding-left: 8px;
     margin: auto 0;
   }

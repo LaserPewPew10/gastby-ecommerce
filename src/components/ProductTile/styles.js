@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { StyledLink } from '../StyledLink';
 
 export const ProductTileWrapper = styled.div`
   border: 1px solid #ddd;
@@ -7,8 +8,6 @@ export const ProductTileWrapper = styled.div`
   border-top-left-radius: 5px;
   overflow: hidden;
   flex-direction: column;
-
-
   > ${StyledLink} {
     border: 1px solid black;
     text-decoration: none;

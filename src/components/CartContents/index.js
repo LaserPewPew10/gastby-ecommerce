@@ -48,7 +48,7 @@ export function CartContents() {
             <strong>Total:</strong>
           </div>
           <div>
-            <span>${checkout?.totalPrice}</span>
+            <span>£{checkout?.totalPrice}</span>
           </div>
         </CartFooter>
       )}

@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const FiltersWrapper = styled.div`
-  padding: 10px;
-  border: 1px solid #ddd;
+export const CategoryFilterItemWrapper = styled.div`
+  display: flex;
+  margin-top: 10px;
+  cursor: pointer;
+  > div:last-child {
+    padding-left: 8px;
+  }
 `;

@@ -1,10 +1,10 @@
-import React from 'react';
-import CartContext from 'context/CartContext';
-import { CartItem, CartHeader, CartFooter, Footer } from './styles';
-import { QuantityAdjuster } from '../QuantityAdjuster';
-import { RemoveLineItem } from '../RemoveLineItem';
-import { Button } from '../Button';
-import { navigate } from '@reach/router';
+import React from "react";
+import CartContext from "context/CartContext";
+import { CartItem, CartHeader, CartFooter, Footer } from "./styles";
+import { QuantityAdjuster } from "../QuantityAdjuster";
+import { RemoveLineItem } from "../RemoveLineItem";
+import { Button } from "../Button";
+import { navigate } from "@reach/router";
 
 export function CartContents() {
   const { checkout, updateLineItem } = React.useContext(CartContext);
@@ -29,7 +29,7 @@ export function CartContents() {
           <div>
             <div>{item.title}</div>
             <div>
-              {item.variant.title === 'Default Title' ? '' : item.variant.title}
+              {item.variant.title === "Default Title" ? "" : item.variant.title}
             </div>
           </div>
           <div>${item.variant.price}</div>

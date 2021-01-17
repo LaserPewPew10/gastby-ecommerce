@@ -1,17 +1,17 @@
 /* eslint-disable jsx-a11y/no-onchange */
-import React from 'react';
-import { graphql } from 'gatsby';
+import React from "react";
+import { graphql } from "gatsby";
 import {
   Layout,
   ImageGallery,
   ProductQuantityAdder,
   Button,
   SEO,
-} from 'components';
-import { Grid, SelectWrapper, Price } from './styles';
-import CartContext from 'context/CartContext';
-import { navigate, useLocation } from '@reach/router';
-import queryString from 'query-string';
+} from "components";
+import { Grid, SelectWrapper, Price } from "./styles";
+import CartContext from "context/CartContext";
+import { navigate, useLocation } from "@reach/router";
+import queryString from "query-string";
 
 export const query = graphql`
   query ProductQuery($shopifyId: String) {
@@ -83,7 +83,7 @@ export default function ProductTemplate(props) {
               )}
               {!!selectedVariant && (
                 <>
-                  <Price>£{selectedVariant.price}</Price>
+                  <Price>${selectedVariant.price}</Price>
                   <ProductQuantityAdder
                     available={selectedVariant.available}
                     variantId={selectedVariant.id}
